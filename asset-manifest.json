@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/todo_list_dimych/static/css/main.8785da40.css",
+    "main.js": "/todo_list_dimych/static/js/main.70ef916a.js",
+    "index.html": "/todo_list_dimych/index.html",
+    "main.8785da40.css.map": "/todo_list_dimych/static/css/main.8785da40.css.map",
+    "main.70ef916a.js.map": "/todo_list_dimych/static/js/main.70ef916a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8785da40.css",
+    "static/js/main.70ef916a.js"
+  ]
+}
