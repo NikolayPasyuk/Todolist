@@ -1,11 +1,14 @@
 {
-  "name": "my-app",
+  "name": "Todolist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://NikolayPasyuk.github.io/todo_list_dimych",
+  "homepage": "https://NikolayPasyuk.github.io/Todolist",
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "next",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/styled-engine-sc": "next",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",

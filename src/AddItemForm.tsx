@@ -1,6 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import {Button, IconButton, TextField} from '@material-ui/core';
-import {AddBox, ControlPoint} from '@material-ui/icons';
+import {Box, Button, FormControl, IconButton, TextField} from '@material-ui/core';
+import {AddBox} from '@material-ui/icons';
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
@@ -8,41 +8,40 @@ type AddItemFormPropsType = {
 
 export function AddItemForm(props: AddItemFormPropsType) {
 
-    const [newTaskTitle, setNewTaskTitle] = useState('')
-    const [error, setError] = useState<string | null>(null)
+    let [title, setTitle] = useState("")
+    let [error, setError] = useState<string | null>(null)
 
-    const onNewTitleChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setNewTaskTitle(e.currentTarget.value)
+    const addItem = () => {
+        if (title.trim() !== "") {
+            props.addItem(title);
+            setTitle("");
+        } else {
+            setError("Title is required");
+        }
+    }
+
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
+        setError(null);
         if (e.charCode === 13) {
-            addTask()
+            addItem();
         }
     }
-
-    const addTask = () => {
-        if (newTaskTitle.trim() !== '') {
-            props.addItem(newTaskTitle.trim())
-            setNewTaskTitle('')
-        } else {
-            setError('Title is required')
-        }
-    }
-
 
     return <div>
-        <TextField value={newTaskTitle}
-                   variant={'outlined'}
-                   label={'Type value'}
-                   onChange={onNewTitleChangeHandler}
-                   onKeyPress={onKeyPressHandler}
+        <TextField variant="outlined"
                    error={!!error}
+                   value={title}
+                   onChange={onChangeHandler}
+                   onKeyPress={onKeyPressHandler}
+                   label="Title"
                    helperText={error}
         />
-        <IconButton onClick={addTask} color={'primary'}>
-            <AddBox/>
+        <IconButton color="primary" onClick={addItem}>
+            <AddBox />
         </IconButton>
     </div>
 }
