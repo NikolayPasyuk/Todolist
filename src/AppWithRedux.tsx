@@ -58,7 +58,7 @@ function AppWithRedux() {
     const removeTodolist = useCallback((id: string) => {
         const action = removeTodolistAC(id)
         dispatch(action)
-    }, [])
+    }, [dispatch])
 
     const changeTodolistTitle = useCallback((id: string, title: string) => {
         const action = changeTodolistTitleAC(id, title)
