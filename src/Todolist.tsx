@@ -1,9 +1,10 @@
-import React, {ChangeEvent, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {FilterValuesType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
-import {Button, Checkbox, IconButton} from '@material-ui/core';
+import {Button, IconButton} from '@material-ui/core';
 import {Delete} from '@material-ui/icons';
+import {Task} from './Task';
 
 export type TaskType = {
     id: string
@@ -66,7 +67,7 @@ export const Todolist = React.memo((props: PropsType) => {
                                            removeTask={props.removeTask}
                                            task={t}
                                            todolistId={props.id}
-                                           key={props.id}
+                                           key={t.id}
                 />)
             }
         </div>
@@ -87,35 +88,3 @@ export const Todolist = React.memo((props: PropsType) => {
     </div>
 })
 
-type TaskPropsType = {
-    changeTaskStatus: (id: string, isDone: boolean, todolistId: string) => void
-    changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
-    removeTask: (taskId: string, todolistId: string) => void
-    task: TaskType
-    todolistId: string
-}
-
-const Task = (props: TaskPropsType) => {
-    const onClickHandler = () => props.removeTask(props.task.id, props.todolistId)
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        let newIsDoneValue = e.currentTarget.checked;
-        props.changeTaskStatus(props.task.id, newIsDoneValue, props.todolistId);
-    }
-    const onTitleChangeHandler = (newValue: string) => {
-        props.changeTaskTitle(props.task.id, newValue, props.todolistId);
-    }
-
-
-    return <div key={props.task.id} className={props.task.isDone ? 'is-done' : ''}>
-        <Checkbox
-            checked={props.task.isDone}
-            color="primary"
-            onChange={onChangeHandler}
-        />
-
-        <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-        <IconButton onClick={onClickHandler}>
-            <Delete/>
-        </IconButton>
-    </div>
-}
