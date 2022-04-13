@@ -61,30 +61,13 @@ export const Todolist = React.memo((props: PropsType) => {
         <AddItemForm addItem={addTask}/>
         <div>
             {
-                props.tasks.map(t => {
-                    const onClickHandler = () => props.removeTask(t.id, props.id)
-                    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                        let newIsDoneValue = e.currentTarget.checked;
-                        props.changeTaskStatus(t.id, newIsDoneValue, props.id);
-                    }
-                    const onTitleChangeHandler = (newValue: string) => {
-                        props.changeTaskTitle(t.id, newValue, props.id);
-                    }
-
-
-                    return <div key={t.id} className={t.isDone ? 'is-done' : ''}>
-                        <Checkbox
-                            checked={t.isDone}
-                            color="primary"
-                            onChange={onChangeHandler}
-                        />
-
-                        <EditableSpan value={t.title} onChange={onTitleChangeHandler}/>
-                        <IconButton onClick={onClickHandler}>
-                            <Delete/>
-                        </IconButton>
-                    </div>
-                })
+                props.tasks.map(t => <Task changeTaskStatus={props.changeTaskStatus}
+                                           changeTaskTitle={props.changeTaskTitle}
+                                           removeTask={props.removeTask}
+                                           task={t}
+                                           todolistId={props.id}
+                                           key={props.id}
+                />)
             }
         </div>
         <div style={{paddingTop: '10px'}}>
