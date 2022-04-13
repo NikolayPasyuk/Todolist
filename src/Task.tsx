@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useCallback} from 'react';
 import {Checkbox, IconButton} from '@material-ui/core';
 import {EditableSpan} from './EditableSpan';
 import {Delete} from '@material-ui/icons';
@@ -17,10 +17,9 @@ export const Task = React.memo((props: TaskPropsType) => {
         let newIsDoneValue = e.currentTarget.checked;
         props.changeTaskStatus(props.task.id, newIsDoneValue, props.todolistId);
     }
-    const onTitleChangeHandler = (newValue: string) => {
+    const onTitleChangeHandler = useCallback((newValue: string) => {
         props.changeTaskTitle(props.task.id, newValue, props.todolistId);
-    }
-
+    }, [])
 
     return <div key={props.task.id} className={props.task.isDone ? 'is-done' : ''}>
         <Checkbox
