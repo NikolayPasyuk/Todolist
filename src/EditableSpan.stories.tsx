@@ -1,7 +1,7 @@
 import React from 'react';
 import {action} from '@storybook/addon-actions';
-import {Meta, Story} from '@storybook/react';
-import {EditableSpan, EditableSpanPropsType} from './EditableSpan';
+import {ComponentMeta, ComponentStory} from '@storybook/react';
+import {EditableSpan} from './EditableSpan';
 
 export default {
     title: 'Todolist/EditableSpan',
@@ -15,9 +15,9 @@ export default {
             description:'Start value EditableSpan'
         }
     },
-} as Meta
+} as ComponentMeta<typeof EditableSpan>
 
-const Template: Story<EditableSpanPropsType> = (args) => <EditableSpan {...args} />;
+const Template: ComponentStory<typeof EditableSpan> = (args) => <EditableSpan {...args} />;
 
 export const EditableSpanExample = Template.bind({});
 
