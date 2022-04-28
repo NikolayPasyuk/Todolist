@@ -30,6 +30,13 @@ type DeleteTodolistResponseType = {
     data: {}
 }
 
+type UpdateTodolistResponseType = {
+    resultCode: number
+    messages: Array<string>
+    fieldsErrors: Array<string>
+    data: {}
+}
+
 
 export const todolistsAPI = {
     getTodolist() {
@@ -45,7 +52,7 @@ export const todolistsAPI = {
         return promise
     },
     updateTodolist(id: string, title: string) {
-        const promise = axios.put(`https://social-network.samuraijs.com/api/1.1/todo-lists/${id}`, {title: title}, settings)
+        const promise = axios.put<UpdateTodolistResponseType>(`https://social-network.samuraijs.com/api/1.1/todo-lists/${id}`, {title: title}, settings)
         return promise
     }
 }
