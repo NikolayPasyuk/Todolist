@@ -44,6 +44,7 @@ export type ActionsType =
     | AddTodolistActionType
     | RemoveTodolistActionType
     | SetTodolistsActionType
+    | SetTasksActionType
 
 const initilaState: TasksStateType = {}
 
