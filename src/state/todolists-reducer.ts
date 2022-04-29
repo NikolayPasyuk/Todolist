@@ -70,7 +70,14 @@ export const todolistsReducer = (state: Array<TodolistDomainType> = initialState
             }
             return [...state]
         }
-
+        case 'SET-TODOLISTS': {
+            return action.todolists.map(tl => {
+                return {
+                    ...tl,
+                    filter: 'all'
+                }
+            })
+        }
         default:
             return state
     }
