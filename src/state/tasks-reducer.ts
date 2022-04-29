@@ -1,6 +1,6 @@
 import {TasksStateType} from '../App';
 import {v1} from 'uuid';
-import {AddTodolistActionType, RemoveTodolistActionType} from './todolists-reducer';
+import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsActionType} from './todolists-reducer';
 import {TaskPriorities, TaskStatuses, TaskType} from '../api/todolists-api';
 
 export type RemoveTaskActionType = {
@@ -29,8 +29,14 @@ export type ChangeTaskTitleActionType = {
     todolistId: string
 }
 
-export type ActionsType = RemoveTaskActionType | addTaskActionType
-    | ChangeTaskStatusActionType | ChangeTaskTitleActionType | AddTodolistActionType | RemoveTodolistActionType
+export type ActionsType =
+    RemoveTaskActionType
+    | addTaskActionType
+    | ChangeTaskStatusActionType
+    | ChangeTaskTitleActionType
+    | AddTodolistActionType
+    | RemoveTodolistActionType
+    | SetTodolistsActionType
 
 const initilaState: TasksStateType = {}
 
