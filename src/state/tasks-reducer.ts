@@ -29,6 +29,13 @@ export type ChangeTaskTitleActionType = {
     todolistId: string
 }
 
+export type SetTasksActionType = {
+    type: 'SET-TASKS'
+    tasks: Array<TaskType>
+    todolistId: string
+}
+
+
 export type ActionsType =
     RemoveTaskActionType
     | addTaskActionType
