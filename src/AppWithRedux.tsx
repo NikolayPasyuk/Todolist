@@ -29,11 +29,7 @@ function AppWithRedux() {
         state.tasks)
 
     useEffect(() => {
-        todolistsAPI.getTodolist()
-            .then(res => {
-                const action = setTodolistAC(res.data)
-                dispatch(action)
-            })
+
 
     }, [])
 
