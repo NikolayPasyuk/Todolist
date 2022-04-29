@@ -105,9 +105,11 @@ export const setTodolistAC = (todolists: Array<TodolistType>): SetTodolistsActio
 }
 
 
-export const fetchTodolistThunk = (dispatch: Dispatch) => {
-    todolistsAPI.getTodolist()
-        .then((res) => {
-            dispatch(setTodolistAC(res.data))
-        })
+export const fetchTodolistTC = () => {
+    return (dispatch: Dispatch) => {
+        todolistsAPI.getTodolist()
+            .then((res) => {
+                dispatch(setTodolistAC(res.data))
+            })
+    }
 }
