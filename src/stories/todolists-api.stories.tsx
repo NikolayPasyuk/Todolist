@@ -102,3 +102,36 @@ export const CreateTask = () => {
         </div>
     </div>
 }
+
+
+export const UpdateTask = () => {
+    const [state, setState] = useState<any>(null)
+    const [taskTitle, setTaskTitle] = useState<string>('')
+    const [taskDescription, setDescription] = useState<string>('')
+    const [status, setStatus] = useState<number>(0)
+    const [priority, setPriority] = useState<number>(0)
+    const [startDate, setStartDate] = useState<string>('')
+    const [deadline, setDeadline] = useState<string>('')
+
+    const [todolistId, setTodolistId] = useState<string>('')
+
+    const createTask = () => {
+        todolistsAPI.createTask(todolistId, taskTitle)
+            .then((res) => {
+                setState(res.data)
+            })
+    }
+
+    return <div> {JSON.stringify(state)}
+        <div>
+            <input placeholder={'todolistId'} value={todolistId} onChange={(e) => {
+                setTodolistId(e.currentTarget.value)
+            }}/>
+            <input placeholder={'Task Title'} value={taskTitle} onChange={
+                (e) => {
+                    setTaskTitle(e.currentTarget.value)
+                }}/>
+            <button onClick={createTask}>create task</button>
+        </div>
+    </div>
+}
