@@ -5,7 +5,7 @@ import {Button, IconButton} from '@material-ui/core';
 import {Delete} from '@material-ui/icons';
 import {Task} from './Task';
 import {TaskStatuses, TaskType} from './api/todolists-api';
-import {fetchTodolistTC, FilterValuesType} from './state/todolists-reducer';
+import {FilterValuesType} from './state/todolists-reducer';
 import {useDispatch} from 'react-redux';
 import {fetchTasksTC} from './state/tasks-reducer';
 
@@ -31,7 +31,7 @@ export const Todolist = React.memo((props: PropsType) => {
 
     useEffect(() => {
         dispatch(fetchTasksTC(props.id))
-    }, [])
+    }, [props.id])
 
     const addTask = useCallback((title: string) => {
         props.addTask(title, props.id);
