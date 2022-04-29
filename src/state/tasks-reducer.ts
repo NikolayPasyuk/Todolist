@@ -106,6 +106,11 @@ export const tasksReducer = (state: TasksStateType = initilaState, action: Actio
             })
             return stateCopy
         }
+        case 'SET-TASKS': {
+            const stateCopy = {...state}
+            stateCopy[action.todolistId] = action.tasks
+            return stateCopy
+        }
         default:
             return state
     }
