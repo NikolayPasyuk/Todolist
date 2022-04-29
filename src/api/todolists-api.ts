@@ -48,7 +48,6 @@ type GetTasksResponse = {
 export type UpdateTaskModelType = {
     title: string
     description: string
-    completed: boolean
     status: number
     priority: number
     startDate: string
@@ -79,6 +78,6 @@ export const todolistsAPI = {
         return instance.post<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks`, {title: taskTitle})
     },
     updateTask(todolistId: string, taskId: string, model: UpdateTaskModelType) {
-
+        return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
     }
 }

@@ -117,7 +117,14 @@ export const UpdateTask = () => {
     const [taskId, setTaskId] = useState<string>('')
 
     const createTask = () => {
-        todolistsAPI.createTask(todolistId, title)
+        todolistsAPI.updateTask(todolistId, taskId, {
+            deadline: '',
+            description: description,
+            priority: priority,
+            startDate: '',
+            status: status,
+            title: title
+        })
             .then((res) => {
                 setState(res.data)
             })
@@ -139,9 +146,13 @@ export const UpdateTask = () => {
                 (e) => {
                     setDescription(e.currentTarget.value)
                 }}/>
-            <input placeholder={'Status'} value={status} type="number" onChange={
+            <input placeholder={'status'} value={status} type="number" onChange={
                 (e) => {
                     setStatus(+e.currentTarget.value)
+                }}/>
+            <input placeholder={'priority'} value={priority} type="number" onChange={
+                (e) => {
+                    setPriority(+e.currentTarget.value)
                 }}/>
             <button onClick={createTask}>update task</button>
         </div>
