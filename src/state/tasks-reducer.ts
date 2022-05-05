@@ -181,7 +181,7 @@ export type UpdateDomainTaskModelType = {
     deadline?: string
 }
 
-export const updateTaskStatusTC = (taskId: string, model: UpdateDomainTaskModelType, todolistId: string) => {
+export const updateTaskStatusTC = (taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string) => {
     return (dispatch: Dispatch, getState: () => AppRootStateType) => {
         const state = getState()
         const task = state.tasks[todolistId].find(t => t.id === taskId)
@@ -190,15 +190,16 @@ export const updateTaskStatusTC = (taskId: string, model: UpdateDomainTaskModelT
             return
         }
 
-        const model: UpdateTaskModelType = {
+        const apiModel: UpdateTaskModelType = {
             deadline: task.deadline,
             description: task.description,
             priority: task.priority,
             startDate: task.startDate,
             title: task.title,
-            status: status
+            status: task.status,
+            ...domainModel
         }
-        todolistsAPI.updateTask(todolistId, taskId, model)
+        todolistsAPI.updateTask(todolistId, taskId, apiModel)
             .then(res => {
                 const action = changeTaskStatusAC(taskId, status, todolistId)
                 dispatch(action)
