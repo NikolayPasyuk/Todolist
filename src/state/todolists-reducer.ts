@@ -2,6 +2,7 @@ import {todolistsAPI, TodolistType} from '../api/todolists-api';
 import {Dispatch} from 'redux';
 
 export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
+export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
 
 export type ActionsType =
     | ReturnType<typeof removeTodolistAC>
