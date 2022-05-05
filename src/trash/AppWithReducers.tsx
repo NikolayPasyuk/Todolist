@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react';
-import '../App.css';
+import '../app/App.css';
 import {Todolist} from '../Todolist';
 import {v1} from 'uuid';
 import {AddItemForm} from '../components/AddItemForm/AddItemForm';
