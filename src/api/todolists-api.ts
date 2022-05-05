@@ -69,7 +69,7 @@ export type UpdateTaskModelType = {
     deadline: string
 }
 
-
+//api
 export const todolistsAPI = {
     getTodolist() {
         return instance.get<TodolistType[]>('todo-lists')
@@ -96,3 +96,5 @@ export const todolistsAPI = {
         return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
     }
 }
+
+//types
