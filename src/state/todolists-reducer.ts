@@ -2,33 +2,13 @@ import {todolistsAPI, TodolistType} from '../api/todolists-api';
 import {Dispatch} from 'redux';
 
 
-export type AddTodolistActionType = {
-    type: 'ADD-TODOLIST'
-    todolist: TodolistType
-}
-
-export type ChangeTodolistActionType = {
-    type: 'CHANGE-TODOLIST-TITLE'
-    id: string
-    title: string
-}
-
-export type ChangeTodolistFilterActionType = {
-    type: 'CHANGE-TODOLIST-FILTER'
-    id: string
-    filter: FilterValuesType
-}
-export type SetTodolistsActionType = {
-    type: 'SET-TODOLISTS'
-    todolists: Array<TodolistType>
-}
-
 export type ActionsType =
     | ReturnType<typeof removeTodolistAC>
     | ReturnType<typeof addTodolistAC>
     | ReturnType<typeof changeTodolistTitleAC>
     | ReturnType<typeof changeTodolistFilterAC>
-    | SetTodolistsActionType
+    | ReturnType<typeof setTodolistAC>
+
 
 const initialState: Array<TodolistDomainType> = []
 
@@ -90,7 +70,7 @@ export const changeTodolistFilterAC = (filter: FilterValuesType, todolistId: str
     return {type: 'CHANGE-TODOLIST-FILTER', filter: filter, id: todolistId}
 }
 
-export const setTodolistAC = (todolists: Array<TodolistType>): SetTodolistsActionType => {
+export const setTodolistAC = (todolists: Array<TodolistType>) => {
     return {type: 'SET-TODOLISTS', todolists}
 }
 
