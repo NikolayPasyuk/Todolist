@@ -40,7 +40,7 @@ export type ActionsType =
     | ReturnType<typeof removeTaskAC>
     | ReturnType<typeof addTaskAC>
     | ReturnType<typeof updateTaskStatusAC>
-    | ChangeTaskTitleActionType
+    | ReturnType<typeof changeTaskTitleAC>
     | AddTodolistActionType
     | SetTodolistsActionType
     | SetTasksActionType
@@ -125,7 +125,7 @@ export const updateTaskStatusAC = (taskId: string,
 
 export const changeTaskTitleAC = (taskId: string,
                                   title: string,
-                                  todolistId: string): ChangeTaskTitleActionType => {
+                                  todolistId: string)=> {
     return {type: 'CHANGE-TASK-TITLE', taskId, title, todolistId}
 }
 
