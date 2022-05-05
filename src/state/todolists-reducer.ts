@@ -102,3 +102,5 @@ export const changeTodolistTitleTC = (id: string, title: string) => {
             })
     }
 }
+
+//types
