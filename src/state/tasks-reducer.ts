@@ -90,7 +90,7 @@ export const addTaskAC = (task: TaskType) => {
 export const updateTaskStatusAC = (taskId: string,
                                    model: UpdateDomainTaskModelType,
                                    todolistId: string) => {
-    return {type: 'UPDATE-TASK', taskId, model, todolistId}
+    return {type: 'UPDATE-TASK', taskId, model, todolistId} as const
 }
 
 export const setTasksAC = (tasks: Array<TaskType>, todolistId: string) => {
