@@ -13,9 +13,8 @@ export const todolistsReducer = (state: Array<TodolistDomainType> = initialState
     switch (action.type) {
         case 'REMOVE-TODOLIST':
             return state.filter(tl => tl.id !== action.id)
-        case 'ADD-TODOLIST': {
+        case 'ADD-TODOLIST':
             return [{...action.todolist, filter: 'all'}, ...state,]
-        }
         case 'CHANGE-TODOLIST-TITLE': {
             const todoList = state.find(tl => tl.id === action.id)
             if (todoList) {
