@@ -14,12 +14,7 @@ import {
     todolistsReducer
 } from '../features/TodolistsList/todolists-reducer';
 import {addTaskAC, removeTaskAC, tasksReducer, updateTaskStatusAC} from '../features/TodolistsList/tasks-reducer';
-import {TaskPriorities, TaskStatuses, TaskType} from '../api/todolists-api';
-
-
-export type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
+import {TaskPriorities, TaskStatuses} from '../api/todolists-api';
 
 
 function AppWithReducers() {
