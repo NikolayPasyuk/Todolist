@@ -86,6 +86,7 @@ export const setTasksAC = (tasks: Array<TaskType>, todolistId: string) => ({
     todolistId
 } as const)
 
+//thunks
 export const fetchTasksTC = (todolistId: string) => {
 
     return (dispatch: Dispatch) => {
