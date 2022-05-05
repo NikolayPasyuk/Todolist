@@ -3,6 +3,7 @@ import {Dispatch} from 'redux';
 
 export type AddTodolistActionType = ReturnType<typeof addTodolistAC>
 export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
+export type SetTodolistsActionType = ReturnType<typeof setTodolistAC>
 
 export type ActionsType =
     | ReturnType<typeof removeTodolistAC>
