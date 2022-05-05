@@ -4,37 +4,6 @@ import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelTyp
 import {Dispatch} from 'redux';
 import {AppRootStateType} from './store';
 
-export type RemoveTaskActionType = {
-    type: 'REMOVE-TASK'
-    todolistId: string
-    taskId: string
-}
-
-export type AddTaskActionType = {
-    type: 'ADD-TASK'
-    task: TaskType
-}
-
-export type UpdateTaskActionType = {
-    type: 'UPDATE-TASK'
-    taskId: string
-    model: UpdateDomainTaskModelType
-    todolistId: string
-}
-
-export type ChangeTaskTitleActionType = {
-    type: 'CHANGE-TASK-TITLE'
-    taskId: string
-    title: string
-    todolistId: string
-}
-
-export type SetTasksActionType = {
-    type: 'SET-TASKS'
-    tasks: Array<TaskType>
-    todolistId: string
-}
-
 
 export type ActionsType =
     | ReturnType<typeof removeTaskAC>
