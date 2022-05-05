@@ -37,7 +37,7 @@ export type SetTasksActionType = {
 
 
 export type ActionsType =
-    RemoveTaskActionType
+    | ReturnType<typeof removeTaskAC>
     | AddTaskActionType
     | UpdateTaskActionType
     | ChangeTaskTitleActionType
@@ -110,7 +110,7 @@ export const tasksReducer = (state: TasksStateType = initilaState, action: Actio
     }
 }
 
-export const removeTaskAC = (taskId: string, todolistId: string): RemoveTaskActionType => {
+export const removeTaskAC = (taskId: string, todolistId: string) => {
     return {type: 'REMOVE-TASK', todolistId, taskId}
 }
 
