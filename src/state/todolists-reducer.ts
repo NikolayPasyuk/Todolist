@@ -76,6 +76,7 @@ export const changeTodolistFilterAC = (filter: FilterValuesType, id: string) => 
 export const setTodolistAC = (todolists: Array<TodolistType>) => ({type: 'SET-TODOLISTS', todolists} as const)
 
 
+//thunks
 export const fetchTodolistTC = () => {
 
     return (dispatch: Dispatch) => {
