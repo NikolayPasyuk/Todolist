@@ -5,16 +5,6 @@ import {Dispatch} from 'redux';
 import {AppRootStateType} from './store';
 
 
-export type ActionsType =
-    | ReturnType<typeof removeTaskAC>
-    | ReturnType<typeof addTaskAC>
-    | ReturnType<typeof updateTaskStatusAC>
-    | ReturnType<typeof setTasksAC>
-    | AddTodolistActionType
-    | SetTodolistsActionType
-    | RemoveTodolistActionType
-
-
 const initilaState: TasksStateType = {}
 
 export const tasksReducer = (state: TasksStateType = initilaState, action: ActionsType): TasksStateType => {
@@ -137,3 +127,11 @@ export type UpdateDomainTaskModelType = {
     startDate?: string
     deadline?: string
 }
+export type ActionsType =
+    | ReturnType<typeof removeTaskAC>
+    | ReturnType<typeof addTaskAC>
+    | ReturnType<typeof updateTaskStatusAC>
+    | ReturnType<typeof setTasksAC>
+    | AddTodolistActionType
+    | SetTodolistsActionType
+    | RemoveTodolistActionType
