@@ -6,11 +6,11 @@ export type RemoveTodolistActionType = ReturnType<typeof removeTodolistAC>
 export type SetTodolistsActionType = ReturnType<typeof setTodolistAC>
 
 export type ActionsType =
-    | ReturnType<typeof removeTodolistAC>
-    | ReturnType<typeof addTodolistAC>
+    | RemoveTodolistActionType
+    | AddTodolistActionType
     | ReturnType<typeof changeTodolistTitleAC>
     | ReturnType<typeof changeTodolistFilterAC>
-    | ReturnType<typeof setTodolistAC>
+    | SetTodolistsActionType
 
 
 const initialState: Array<TodolistDomainType> = []
