@@ -163,7 +163,9 @@ export const addTaskTC = (title: string, todolistId: string) => {
     return (dispatch: Dispatch) => {
         todolistsAPI.createTask(todolistId, title)
             .then(res => {
-
+                const task = res.data.data.item
+                const action = addTaskAC(task)
+                dispatch(action)
             })
     }
 }
