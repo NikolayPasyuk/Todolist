@@ -24,8 +24,8 @@ export type SetTodolistsActionType = {
 }
 
 export type ActionsType =
-    ReturnType<typeof removeTodolistAC>
-    | AddTodolistActionType
+    | ReturnType<typeof removeTodolistAC>
+    | ReturnType<typeof addTodolistAC>
     | ChangeTodolistActionType
     | ChangeTodolistFilterActionType
     | SetTodolistsActionType
@@ -78,7 +78,7 @@ export const removeTodolistAC = (todolistId: string) => {
     return {type: 'REMOVE-TODOLIST', id: todolistId} as const
 }
 
-export const addTodolistAC = (todolist: TodolistType): AddTodolistActionType => {
+export const addTodolistAC = (todolist: TodolistType) => {
     return {type: 'ADD-TODOLIST', todolist}
 }
 
