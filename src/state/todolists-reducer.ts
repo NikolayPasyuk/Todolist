@@ -27,8 +27,7 @@ export type ActionsType =
     | ReturnType<typeof removeTodolistAC>
     | ReturnType<typeof addTodolistAC>
     | ReturnType<typeof changeTodolistTitleAC>
-    | ChangeTodolistActionType
-    | ChangeTodolistFilterActionType
+    | ReturnType<typeof changeTodolistFilterAC>
     | SetTodolistsActionType
 
 const initialState: Array<TodolistDomainType> = []
@@ -87,7 +86,7 @@ export const changeTodolistTitleAC = (id: string, title: string) => {
     return {type: 'CHANGE-TODOLIST-TITLE', id: id, title: title}
 }
 
-export const changeTodolistFilterAC = (filter: FilterValuesType, todolistId: string): ChangeTodolistFilterActionType => {
+export const changeTodolistFilterAC = (filter: FilterValuesType, todolistId: string) => {
     return {type: 'CHANGE-TODOLIST-FILTER', filter: filter, id: todolistId}
 }
 
