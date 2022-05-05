@@ -9,6 +9,7 @@ import {
 import {addTodolistAC, removeTodolistAC, setTodolistAC} from './todolists-reducer';
 import {TaskPriorities, TaskStatuses} from '../api/todolists-api';
 import {TasksStateType} from '../App';
+import {v1} from 'uuid';
 
 
 let startState: TasksStateType = {}
@@ -148,7 +149,12 @@ test('title of specified task should be changed', () => {
 
 test('new property  with new array should be added when new todolist is added', () => {
 
-    const action = addTodolistAC('new todolist');
+    const action = addTodolistAC({
+        id: v1(),
+        addedDate: '',
+        order: 0,
+        title: 'new todolist'
+    });
 
     const endState = tasksReducer(startState, action)
 
