@@ -13,15 +13,10 @@ import {
     removeTodolistTC,
     TodolistDomainType
 } from '../features/TodolistsList/todolists-reducer';
-import {addTaskTC, removeTaskTC, updateTaskStatusTC} from '../features/TodolistsList/tasks-reducer';
+import {addTaskTC, removeTaskTC, TasksStateType, updateTaskStatusTC} from '../features/TodolistsList/tasks-reducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './store';
-import {TaskStatuses, TaskType} from '../api/todolists-api';
-
-
-export type TasksStateType = {
-    [key: string]: Array<TaskType>
-}
+import {TaskStatuses} from '../api/todolists-api';
 
 
 function App() {
