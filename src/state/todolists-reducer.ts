@@ -70,9 +70,7 @@ export const changeTodolistFilterAC = (filter: FilterValuesType, id: string) => 
     id
 } as const)
 
-export const setTodolistAC = (todolists: Array<TodolistType>) => {
-    return {type: 'SET-TODOLISTS', todolists}
-}
+export const setTodolistAC = (todolists: Array<TodolistType>) => ({type: 'SET-TODOLISTS', todolists} as const)
 
 
 export const fetchTodolistTC = () => {
