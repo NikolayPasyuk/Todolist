@@ -12,8 +12,8 @@ import {
     FilterValuesType,
     removeTodolistTC,
     TodolistDomainType
-} from '../state/todolists-reducer';
-import {addTaskTC, removeTaskTC, updateTaskStatusTC} from '../state/tasks-reducer';
+} from '../features/TodolistsList/todolists-reducer';
+import {addTaskTC, removeTaskTC, updateTaskStatusTC} from '../features/TodolistsList/tasks-reducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './store';
 import {TaskStatuses, TaskType} from '../api/todolists-api';

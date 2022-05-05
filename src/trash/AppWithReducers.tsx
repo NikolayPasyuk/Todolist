@@ -12,8 +12,8 @@ import {
     FilterValuesType,
     removeTodolistAC,
     todolistsReducer
-} from '../state/todolists-reducer';
-import {addTaskAC, removeTaskAC, tasksReducer, updateTaskStatusAC} from '../state/tasks-reducer';
+} from '../features/TodolistsList/todolists-reducer';
+import {addTaskAC, removeTaskAC, tasksReducer, updateTaskStatusAC} from '../features/TodolistsList/tasks-reducer';
 import {TaskPriorities, TaskStatuses, TaskType} from '../api/todolists-api';
 
 
