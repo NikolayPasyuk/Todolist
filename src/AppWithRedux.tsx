@@ -7,7 +7,7 @@ import {Menu} from '@material-ui/icons';
 import {
     addTodolistTC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC,
+    changeTodolistTitleTC,
     fetchTodolistTC,
     FilterValuesType,
     removeTodolistTC,
@@ -66,8 +66,8 @@ function AppWithRedux() {
     }, [dispatch])
 
     const changeTodolistTitle = useCallback((id: string, title: string) => {
-        const action = changeTodolistTitleAC(id, title)
-        dispatch(action)
+        const thunk = changeTodolistTitleTC(id, title)
+        dispatch(thunk)
     }, [dispatch])
 
     const addTodolist = useCallback((title: string) => {
