@@ -12,6 +12,7 @@ export type ActionsType =
     | ReturnType<typeof setTasksAC>
     | AddTodolistActionType
     | SetTodolistsActionType
+    | RemoveTodolistActionType
 
 
 const initilaState: TasksStateType = {}
@@ -79,7 +80,7 @@ export const tasksReducer = (state: TasksStateType = initilaState, action: Actio
 }
 
 export const removeTaskAC = (taskId: string, todolistId: string) => {
-    return {type: 'REMOVE-TASK', todolistId, taskId}
+    return {type: 'REMOVE-TASK', todolistId, taskId} as const
 }
 
 export const addTaskAC = (task: TaskType) => {
