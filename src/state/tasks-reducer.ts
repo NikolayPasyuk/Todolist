@@ -84,7 +84,7 @@ export const removeTaskAC = (taskId: string, todolistId: string) => {
 }
 
 export const addTaskAC = (task: TaskType) => {
-    return {type: 'ADD-TASK', task}
+    return {type: 'ADD-TASK', task} as const
 }
 
 export const updateTaskStatusAC = (taskId: string,
