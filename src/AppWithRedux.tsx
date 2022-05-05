@@ -33,7 +33,8 @@ function AppWithRedux() {
         state.tasks)
 
     useEffect(() => {
-        dispatch(fetchTodolistTC())
+        const thunk = fetchTodolistTC()
+        dispatch(thunk)
     }, [])
 
     const removeTask = useCallback((id: string, todolistId: string) => {
