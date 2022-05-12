@@ -1,8 +1,9 @@
 export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
+type ErrorType = null | string
 
 const initialState = {
     status: 'loading' as RequestStatusType,
-    error: '' && null
+    error: null as ErrorType
 }
 
 type InitialStateType = typeof initialState
