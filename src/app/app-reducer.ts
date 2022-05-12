@@ -3,7 +3,7 @@ type ErrorType = null | string
 
 const initialState = {
     status: 'loading' as RequestStatusType,
-    error: null as ErrorType
+    error: 'some error' as ErrorType
 }
 
 type InitialStateType = typeof initialState
