@@ -14,10 +14,6 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 export function ErrorSnackbar() {
     const [open, setOpen] = React.useState(false);
 
-    const handleClick = () => {
-        setOpen(true);
-    };
-
     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
             return;
