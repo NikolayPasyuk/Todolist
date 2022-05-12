@@ -1,5 +1,6 @@
 import {todolistsAPI, TodolistType} from '../../api/todolists-api';
 import {Dispatch} from 'redux';
+import {setStatusAC, SetStatusActionType} from '../../app/app-reducer';
 
 
 const initialState: Array<TodolistDomainType> = []
@@ -32,10 +33,12 @@ export const setTodolistAC = (todolists: Array<TodolistType>) => ({type: 'SET-TO
 
 //thunks
 export const fetchTodolistTC = () => {
-    return (dispatch: Dispatch<ActionsType>) => {
+    return (dispatch: Dispatch<ActionsType | SetStatusActionType>) => {
+        dispatch(setStatusAC('loading'))
         todolistsAPI.getTodolist()
             .then((res) => {
                 dispatch(setTodolistAC(res.data))
+                dispatch(setStatusAC('succeeded'))
             })
     }
 }
