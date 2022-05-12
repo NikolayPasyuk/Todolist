@@ -27,7 +27,7 @@ export function ErrorSnackbar() {
     const isOpen = error !== null
 
     return (
-        <Snackbar open={isOpen} autoHideDuration={3000} onClose={handleClose}>
+        <Snackbar open={isOpen} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error" sx={{width: '100%'}}>
                 {error}
             </Alert>
