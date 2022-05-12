@@ -18,5 +18,6 @@ type ErrorType = null | string
 export type InitialStateType = typeof initialState
 
 export const setErrorAC = (error: string | null) => ({type: 'APP/SET-STATUS', error})
+export const setStatusAC = (status: RequestStatusType) => ({type: 'APP/SET-STATUS', status})
 
 type ActionsType = any
