@@ -4,12 +4,14 @@ import {AppBar, Button, Container, IconButton, Toolbar, Typography} from '@mater
 import {Menu} from '@material-ui/icons';
 import {TodolistsList} from '../features/TodolistsList/TodolistList';
 import {LinearProgress} from '@mui/material';
+import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar';
 
 
 function App() {
 
     return (
         <div className="App">
+            <ErrorSnackbar/>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
