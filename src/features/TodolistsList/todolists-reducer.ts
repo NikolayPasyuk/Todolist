@@ -33,7 +33,7 @@ export const setTodolistAC = (todolists: Array<TodolistType>) => ({type: 'SET-TO
 
 //thunks
 export const fetchTodolistTC = () => {
-    return (dispatch: Dispatch<ActionsType | SetStatusActionType>) => {
+    return (dispatch: ThunkDispatch) => {
         dispatch(setStatusAC('loading'))
         todolistsAPI.getTodolist()
             .then((res) => {
@@ -51,7 +51,7 @@ export const removeTodolistTC = (todolistId: string) => {
     }
 }
 export const addTodolistTC = (title: string) => {
-    return (dispatch: Dispatch<ActionsType | SetStatusActionType>) => {
+    return (dispatch: ThunkDispatch) => {
         dispatch(setStatusAC('loading'))
         todolistsAPI.createTodolist(title)
             .then((res) => {
@@ -82,3 +82,4 @@ export type FilterValuesType = 'all' | 'active' | 'completed';
 export type TodolistDomainType = TodolistType & {
     filter: FilterValuesType
 }
+type ThunkDispatch = Dispatch<ActionsType | SetStatusActionType>
