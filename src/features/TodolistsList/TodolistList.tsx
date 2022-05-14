@@ -88,15 +88,12 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
                         return <Grid item key={tl.id}>
                             <Paper style={{padding: '10px'}}>
                                 <Todolist
-                                    key={tl.id}
-                                    id={tl.id}
-                                    title={tl.title}
+                                    todolist={tl}
                                     tasks={tasksForTodolist}
                                     removeTask={removeTask}
                                     changeFilter={changeFilter}
                                     addTask={addTask}
                                     changeTaskStatus={changeStatus}
-                                    filter={tl.filter}
                                     removeTodolist={removeTodolist}
                                     changeTaskTitle={changeTaskTitle}
                                     changeTodolistTitle={changeTodolistTitle}
@@ -115,15 +112,12 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
                         <Grid item key={tl.id}>
                             <Paper style={{padding: '10px'}}>
                                 <Todolist
-                                    key={tl.id}
-                                    id={tl.id}
-                                    title={tl.title}
+                                    todolist={tl}
                                     tasks={tasksForTodolist}
                                     removeTask={removeTask}
                                     changeFilter={changeFilter}
                                     addTask={addTask}
                                     changeTaskStatus={changeStatus}
-                                    filter={tl.filter}
                                     removeTodolist={removeTodolist}
                                     changeTaskTitle={changeTaskTitle}
                                     changeTodolistTitle={changeTodolistTitle}
