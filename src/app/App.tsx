@@ -32,7 +32,7 @@ function App({demo = false}: PropsType) {
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
             <Container fixed>
-                <TodolistsList/>
+                <TodolistsList demo={demo}/>
             </Container>
         </div>
     )
