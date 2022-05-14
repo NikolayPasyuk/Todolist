@@ -9,6 +9,9 @@ import {useSelector} from 'react-redux';
 import {AppRootStateType} from './store';
 import {RequestStatusType} from './app-reducer';
 
+type PropsType = {
+    demo?: boolean
+}
 
 function App() {
     const status = useSelector<AppRootStateType, RequestStatusType>(state => state.app.status)
