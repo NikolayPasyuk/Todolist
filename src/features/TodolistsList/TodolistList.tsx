@@ -27,6 +27,9 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        if (demo) {
+            return
+        }
         const thunk = fetchTodolistTC()
         dispatch(thunk)
     }, [])
