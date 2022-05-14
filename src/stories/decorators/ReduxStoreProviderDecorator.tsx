@@ -22,7 +22,7 @@ const initialGlobalState: AppRootStateType = {
             addedDate: '', order: 0
         },
         {
-            id: 'todolistId2', title: 'What to buy', filter: 'all', entityStatus: 'idle',
+            id: 'todolistId2', title: 'What to buy', filter: 'all', entityStatus: 'loading',
             addedDate: '', order: 0
         }
     ],
