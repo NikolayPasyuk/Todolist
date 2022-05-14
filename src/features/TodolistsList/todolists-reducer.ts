@@ -29,7 +29,7 @@ export const changeTodolistTitleAC = (id: string, title: string) =>
     ({type: 'CHANGE-TODOLIST-TITLE', id, title} as const)
 export const changeTodolistFilterAC = (filter: FilterValuesType, id: string) =>
     ({type: 'CHANGE-TODOLIST-FILTER', filter, id} as const)
-export const changeTodolistEntityAC = (id: string, status: RequestStatusType) =>
+export const changeTodolistEntityStatusAC = (id: string, status: RequestStatusType) =>
     ({type: 'CHANGE-TODOLIST-ENTITY-STATUS', id, status} as const)
 export const setTodolistAC = (todolists: Array<TodolistType>) => ({type: 'SET-TODOLISTS', todolists} as const)
 
@@ -81,6 +81,7 @@ export type ActionsType =
     | ReturnType<typeof changeTodolistTitleAC>
     | ReturnType<typeof changeTodolistFilterAC>
     | SetTodolistsActionType
+    | ReturnType<typeof changeTodolistEntityStatusAC>
 export type FilterValuesType = 'all' | 'active' | 'completed';
 export type TodolistDomainType = TodolistType & {
     filter: FilterValuesType
