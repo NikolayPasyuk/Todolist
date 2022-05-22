@@ -1,42 +1,35 @@
-import React from 'react';
-import {action} from '@storybook/addon-actions';
-import {ComponentMeta, ComponentStory} from '@storybook/react';
-import {Task} from './Task';
-import {TaskPriorities, TaskStatuses} from '../../../../api/todolists-api';
+import React from 'react'
+import {action} from '@storybook/addon-actions'
+import {Task} from './Task'
+import {TaskPriorities, TaskStatuses} from '../../../../api/todolists-api'
 
 export default {
-    title: 'Todolist/Task',
-    component: Task,
-    args: {
-        changeTaskStatus: action('Status changed inside Task'),
-        changeTaskTitle: action('Title changed inside Task'),
-        removeTask: action('Remove Button inside Task clicked')
-    }
-} as ComponentMeta<typeof Task>
-
-
-const Template: ComponentStory<typeof Task> = (args) => <Task {...args} />;
-
-
-export const TaskIsDoneExample = Template.bind({});
-TaskIsDoneExample.args = {
-    task: {
-        id: '1', status: TaskStatuses.Completed, title: 'JS',
-        todoListId: 'todolistId1', startDate: '', deadline: '',
-        addedDate: '', order: 0, priority: TaskPriorities.Low,
-        description: ''
-    },
-    todolistId: 'todolistId1'
+    title: 'Task Stories',
+    component: Task
 }
 
-export const TaskIsNotDoneExample = Template.bind({});
-TaskIsNotDoneExample.args = {
-    task: {
-        id: '1', status: TaskStatuses.New, title: 'JS',
-        todoListId: 'todolistId1', startDate: '', deadline: '',
-        addedDate: '', order: 0, priority: TaskPriorities.Low,
-        description: ''
-    },
-    todolistId: 'todolistId1'
-}
+const removeCallback = action('Remove Button inside Task clicked');
+const changeStatusCallback = action('Status changed inside Task');
+const changeTitleCallback = action('Title changed inside Task');
 
+export const TaskBaseExample = (props: any) => {
+    return (
+        <div>
+            <Task
+                task={{id: '1', status: TaskStatuses.Completed, title: "CSS", todoListId: "todolistId1", description: '',
+                    startDate: '', deadline: '', addedDate: '', order: 0, priority: TaskPriorities.Low}}
+                removeTask={removeCallback}
+                changeTaskTitle={changeTitleCallback}
+                changeTaskStatus={changeStatusCallback}
+                todolistId={"todolistId1"}
+            />
+            <Task
+                task={{id: '2', status: TaskStatuses.New, title: "JS", todoListId: "todolistId1", description: '',
+                    startDate: '', deadline: '', addedDate: '', order: 0, priority: TaskPriorities.Low}}
+                removeTask={removeCallback}
+                changeTaskTitle={changeTitleCallback}
+                changeTaskStatus={changeStatusCallback}
+                todolistId={"todolistId2"}
+            />
+        </div>)
+}
