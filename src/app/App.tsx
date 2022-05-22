@@ -8,7 +8,8 @@ import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar';
 import {useSelector} from 'react-redux';
 import {AppRootStateType} from './store';
 import {RequestStatusType} from './app-reducer';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {Login} from '../features/Login/Login';
 
 type PropsType = {
     demo?: boolean
@@ -33,7 +34,10 @@ function App({demo = false}: PropsType) {
                     {status === 'loading' && <LinearProgress/>}
                 </AppBar>
                 <Container fixed>
-                    <TodolistsList demo={demo}/>
+                    <Routes>
+                        <Route path="/" element={<TodolistsList demo={demo}/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                    </Routes>
                 </Container>
             </div>
         </BrowserRouter>
